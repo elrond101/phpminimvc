@@ -1,0 +1,39 @@
+{% extends "layout.twig.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+  <h1>Update {{ model.id }}</h1>
+  <a href="/update/{{ model.id }}" class="btn btn-primary">User List</a>
+  <br>
+  {% if errors|length > 0 %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          {% for item in error %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  <form method="post">
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" name="user[email]" class="form-control" placeholder="Email" value="{{ model.email }}">
+    </div>
+    <div class="form-group">
+      <label>First name</label>
+      <input type="text" name="user[first_name]" class="form-control" placeholder="First name" value="{{ model.first_name }}">
+    </div>
+    <div class="form-group">
+      <label>Second name</label>
+      <input type="text" name="user[last_name]" class="form-control" placeholder="Second name" value="{{ model.last_name }}">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="user[password]" class="form-control" placeholder="Password" value="{{ model.password }}">
+    </div>
+    <button type="submit" class="btn btn-default">Update</button>
+  </form>
+{% endblock %}

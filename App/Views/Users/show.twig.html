@@ -1,0 +1,16 @@
+{% extends "layout.twig.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+  <h1>User {{model.id }}</h1>
+  <a href="/users" class="btn btn-primary">Users List</a>
+  <a href="/update/{{model.id }}" class="btn btn-primary">Edit User</a>
+  <br>
+  <ul class="list-group">
+    <li class="list-group-item">{{model.email }}</li>
+    <li class="list-group-item">{{model.first_name }}</li>
+    <li class="list-group-item">{{model.last_name }}</li>
+    <li class="list-group-item">{{model.password }}</li>
+  </ul>
+{% endblock %}

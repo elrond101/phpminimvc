@@ -1,0 +1,31 @@
+{% extends "layout.twig.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+  <h1>User List</h1>
+  <a href="/create" class="btn btn-primary">New User</a>
+  <br>
+  <table class="table table-striped">
+    <tr>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Second Name</th>
+      <th>Password</th>
+      <th></th>
+    </tr>
+    {% for user in users %}
+      <tr>
+        <th><a href="/show/{{ user.id }}">{{ user.email }}</a></th>
+        <th>{{ user.first_name }}</th>
+        <th>{{ user.last_name }}</th>
+        <th>{{ user.password }}</th>
+        <th>
+          <a href="/update/{{ user.id }}" class="btn btn-primary btn-sm">Update</a>
+          <a href="/destroy/{{ user.id }}" class="btn btn-danger btn-sm">Destroy</a>
+        </th>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+
